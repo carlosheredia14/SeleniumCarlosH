@@ -53,18 +53,50 @@ public class FirtsTest {
 	  driver.findElement(By.id("company")).click();
 	  
 	  
-	  driver.findElement(By.xpath("//*[@id=\"company\"]/option[2]")).click();	
-	  //aqui
+	  driver.findElement(By.xpath("//*[@id=\"company\"]/option[2]")).click();
+	  Select drpdown = new Select (driver.findElement(By.id("company")));
+	  drpdown.selectByVisibleText("Apple Inc.");
 	  driver.findElement(By.id("company")).click();
-	  /*
+	  
 	  
 	  driver.findElement(By.xpath("//*[@id=\"main\"]/form/div/input")).click();
 	  
 	  String mensaje = driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]")).getText();
 	  
 	  Assert.assertEquals(mensaje, "Done ! Computer " +nombre +" has been created");
+	  driver.close();
 	  
-	  */
+	  
+	  
+	  
+  }
+  
+  @Test
+  public void ejercicio2() {
+	  ChromeOptions chromeOpt = new ChromeOptions();
+	  WebDriverManager.chromedriver().setup();
+	  WebDriver driver = new ChromeDriver(chromeOpt);
+	  
+	  driver.get("https://computer-database.gatling.io/computers");
+	  
+	  driver.findElement(By.id("searchbox")).sendKeys("ASCI Thors Hammer");
+	  driver.findElement(By.id("searchsubmit")).click();
+	  
+	  driver.findElement(By.xpath("//*[@id=\"main\"]/table/tbody/tr/td[1]/a")).click();
+	  
+	  driver.findElement(By.xpath("//*[@id=\"company\"]/option[2]")).click();
+	  Select drpdown = new Select (driver.findElement(By.id("company")));
+	  drpdown.selectByVisibleText("Apple Inc.");
+	  //driver.findElement(By.id("company")).click();
+	  
+	  driver.findElement(By.xpath("//*[@id='main']/form[1]/div/input")).click();
+	  
+	  String mensaje = driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]")).getText();
+	  
+	  Assert.assertEquals(mensaje, "Done ! Computer ASCI Thors Hammer has been updated");
+	  driver.close();
+	  
+	  
 	  
 	  
 	  

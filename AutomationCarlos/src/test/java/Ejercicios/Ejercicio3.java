@@ -6,6 +6,7 @@ public class Ejercicio3 {
 		// TODO Auto-generated method stub
 
 		shouldWakeUp(true, 1);
+		
 	}
 
 	public static boolean shouldWakeUp(boolean barking, int hourOfDay) {
